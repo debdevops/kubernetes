@@ -49,3 +49,13 @@ kubectl get pods --all-namespaces | grep blue
 
 kubectl -n dev get svc
 
+kubectl run nginx-pod --image=nginx:alpine
+
+kubectl run redis --image=redis:alpine --labels=tier=db
+
+kubectl expose pod redis --name redis-service --port 6379 --target-port 6379
+
+kubectl describe svc redis-service
+
+kubectl run custom-nginx --image=nginx --port=8080
+
