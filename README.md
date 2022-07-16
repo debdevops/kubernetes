@@ -16,6 +16,8 @@ kubectl get replicasets.apps
 
 kubectl scale nginx-deployment --replicas=5
 
+kubectl delete replicaset.apps backend
+
 kubectl get deployment.app
 
 kubectl describe deployment.apps nginx-deployment | grep -i image 
