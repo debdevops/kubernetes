@@ -1,4 +1,5 @@
 # kubernetes Docs - https://kubernetes.io/docs/
+
 # Kubernetes resources (kubectl)
 # --dry-run: By default as soon as the command is run, the resource will be created. If you simply want to test your command , use the --dry-run=client option. This will not create the resource, instead, tell you whether the resource can be created and if your command is right.
 
@@ -46,7 +47,6 @@ kubectl run redis --image=redis --namespace finance
 
 kubectl create service nodeport nginx --tcp=80:80 --node-port=30080 --dry-run=client -o yaml
 
-# find blue pod in all namespaces
 kubectl get pods --all-namespaces | grep blue 
 
 kubectl -n dev get svc
@@ -61,3 +61,6 @@ kubectl describe svc redis-service
 
 kubectl run custom-nginx --image=nginx --port=8080
 
+kubectl describe node node01 | grep -i taint
+
+kubectl taint node node01 test=value:NoSchedule

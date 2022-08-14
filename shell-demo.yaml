@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:  
+  name: shell-demo
+spec:
+  volumes:
+  - name: shared-data
+    emptyDir: {}
+  containers:
+  - name: nginx
+    image: nginx
+    volumeMounts:
+    - name: shared-data
+      mountPath: /usr/share/nginx/html
+  hostNetwork:  true
+  dnsPolicy:  Default
+
+#run
+# echo 'Hello shell demo' > /usr/share/nginx/html/index.html
+
+# Run this in the shell inside your container
+# apt-get update
+# apt-get install curl
+# curl http://localhost/
+
+# exit # To quit the shell in the container-
