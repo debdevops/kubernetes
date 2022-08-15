@@ -64,3 +64,9 @@ kubectl run custom-nginx --image=nginx --port=8080
 kubectl describe node node01 | grep -i taint
 
 kubectl taint node node01 test=value:NoSchedule
+
+kubectl get nodes node01 --show-labels
+
+kubectl label nodes node01 color=blue
+
+kubectl get pods -o wide
